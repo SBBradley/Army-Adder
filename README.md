@@ -5,15 +5,15 @@ This is an army list creator for a tabletop wargame. It takes user input from th
 There are multiple classes for each type of unit in the army.
 
 The classes in the project are:
-MainList
-UnitBuilder
-HqChoice
-ElitesChoice
-TroopsChoice
-FastAttackChoice
-HeavySupportChoice
-FlyerChoice
-TransportChoice
+MainList,
+UnitBuilder,
+HqChoice,
+ElitesChoice,
+TroopsChoice,
+FastAttackChoice,
+HeavySupportChoice,
+FlyerChoice,
+TransportChoice,
 
 
 
