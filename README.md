@@ -12,13 +12,13 @@ HeavySupportChoice<br />
 FlyerChoice<br />
 TransportChoice<br />
 
-# Console Interface
+## Console Interface
 Below is a screenshot of the console program during execution:
 
-# Txt File Output
+## Txt File Output
 Below is an example of the txt file that is generated after the user has entered all relevant info:
 
-# Video Demo
+## Video Demo
 Below is a short video demonstrating the program from start to finish:
 
 
