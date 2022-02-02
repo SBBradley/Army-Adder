@@ -14,12 +14,13 @@ public class HqChoice extends UnitBuilder {
    
 //toString method returns the unit info in string form.
    public String toString() {
-   
       String output = super.toString();
+
+      //Appends all info from user input.
       output = "HQ choice: " + UnitName.toUpperCase() + "\n" +
-         "Battle role: " + BattleRole + "\n" + 
-         "# in unit: " +   NumInUnit + "\n" + 
-         "Point value: " + NumInUnit * PointVal;
+         "Battle role: " + BattleRole + "\n"
+         + "# in unit: " +   NumInUnit + "\n"
+         + "Point value: " + NumInUnit * PointVal;
       return output;
    }
 }
