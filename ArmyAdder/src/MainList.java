@@ -40,6 +40,9 @@ public class MainList {
    public static void main(String[] args) {
 
       //Asks the user for the alien race of the army.
+      System.out.println();
+      System.out.println();
+      System.out.println();
       System.out.println("Choose an army race:");
 
       //User inputs the alien race of the army.
