@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /*
-* Army list creator for a tabletop wargame.
+* A program that generates an army list for a tabletop wargame.
 * Date: Jan. 16, 2022
 */
 public class MainList {
