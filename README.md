@@ -1,16 +1,5 @@
 # ArmyAdder
-A program that generates an army list for a tabletop wargame. It takes user input from the console and exports it to a txt file with all the choices and totals for the army's points.There are multiple classes for each type of unit in the army.
-
-The classes in the project are:<br />
-MainList<br />
-UnitBuilder<br />
-HqChoice<br />
-ElitesChoice<br />
-TroopsChoice<br />
-FastAttackChoice<br />
-HeavySupportChoice<br />
-FlyerChoice<br />
-TransportChoice<br />
+A program that generates an army list for a tabletop wargame. It takes user input from the console and exports it to a txt file with a summary of the army's info.
 
 ## Console Interface
 Below is a screenshot of the console program during execution:
