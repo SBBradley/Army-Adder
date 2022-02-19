@@ -183,6 +183,8 @@ public class listBuilder {
               fw.close();
               System.out.println("Successfully generated file in:" + "\n"
               + file.getAbsolutePath());
+              System.out.println();
+              System.out.println();
            }
            //Exception in case the filewriter cannot write to file or other error occurs.
            catch (IOException ex) {
