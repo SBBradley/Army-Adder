@@ -87,7 +87,7 @@ public class fastAttack extends unitBuilder {
     unitBuilder.increaseTotalUnitCount();
    
     System.out.println();
-    System.out.println("Make a fastAttack choice.");
+    System.out.println("Make a fast Attack choice.");
     fastAttackChoice.setUnitName(listBuilder.scan.nextLine());
    
     System.out.println();

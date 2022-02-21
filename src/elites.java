@@ -87,7 +87,7 @@ public class elites extends unitBuilder {
     unitBuilder.increaseTotalUnitCount();
    
     System.out.println();
-    System.out.println("Make a elites choice.");
+    System.out.println("Make an elites choice.");
     elitesChoice.setUnitName(listBuilder.scan.nextLine());
    
     System.out.println();

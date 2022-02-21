@@ -46,7 +46,7 @@ public class listBuilder {
          scan.close();
          System.exit(0);
       }
-      else if (reply2.equalsIgnoreCase("no")) {
+      else {
 
           //Calls unitCreate method and cycles through creation questions.
          unitCreate();
@@ -122,9 +122,33 @@ public class listBuilder {
         reply = scan.nextLine();
            
         if (reply.equalsIgnoreCase("no")) {
-         createList();
-         scan.close();
-         System.exit(0);
+         try {
+            System.out.println();
+            System.out.println("Are you finished creating your army? (yes/no)");
+      
+            //User either finishes creating list or adds more input.
+            reply2 = scan.nextLine();
+            System.out.println();
+            
+            if(reply2.equalsIgnoreCase("yes")) {
+      
+               /*Calls createList method that exports to a 
+               *text document with a summary of all created units and stats.*/
+               createList(); 
+               scan.close();
+               System.exit(0);
+            }
+            else {
+      
+                //Calls unitCreate method and cycles through creation questions.
+               unitCreate();
+            }
+         }
+         catch (Exception ex) {
+            System.out.println("\n" + "An error occurred." + "\n");
+            ex.printStackTrace();
+            System.exit(0);
+         }
       }
       
       //While loop for getting multiple unit creations, will terminate if user inputs "no".
@@ -166,19 +190,19 @@ public class listBuilder {
            else if (battleRole.equalsIgnoreCase("Lord of War")) {
               lordOfWar.lordOfWarChoice.pickedLordOfWar();
         }
-         
+      
            /*Repeats question to reenter or exit while loop.
             * If user enters "no" will jump out of loop and 
             * back into main method to create the finalized list.*/
            System.out.println();
            System.out.println("Choose another battlefield role? (yes/no)");
-           reply = scan.nextLine();
-         }
+           reply = scan.nextLine(); 
       }
-      catch (Exception ex) {
-         System.out.println("\n" + "An error occurred. Please only enter (yes/no)" + "\n");
-         ex.printStackTrace();
-         unitCreate(); //recursive call to own method.
-      }
+   }
+   catch (Exception ex) {
+      System.out.println("\n" + "An error occurred." + "\n");
+      ex.printStackTrace();
+      System.exit(0);
+   }
      } 
 }

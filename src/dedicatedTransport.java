@@ -87,7 +87,7 @@ public class dedicatedTransport extends unitBuilder {
     unitBuilder.increaseTotalUnitCount();
    
     System.out.println();
-    System.out.println("Make a dedicatedTransport choice.");
+    System.out.println("Make a dedicated transport choice.");
     dedicatedTransportChoice.setUnitName(listBuilder.scan.nextLine());
    
     System.out.println();
