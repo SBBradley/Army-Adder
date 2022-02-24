@@ -3,7 +3,7 @@ A program that generates an army list for a tabletop wargame. It takes user inpu
 
 ## Console Interface
 
-Below is a screenshot of the console interface during execution:
+Below is a screenshot of the program during execution:
 
 ![Screenshot of ArmyAdder](https://user-images.githubusercontent.com/97514020/154974061-d564738c-fa5c-49ae-9d96-2d40b9d94ded.png)
 
