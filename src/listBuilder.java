@@ -25,7 +25,6 @@ public class listBuilder {
       System.out.println();
       System.out.println("Choose an army race:");
       race = scan.nextLine();
-      System.out.println();
       
       //Calls unitCreate method and cycles through creation questions.
       unitCreate();
@@ -36,7 +35,6 @@ public class listBuilder {
 
       //User either finishes creating list or adds more input.
       reply2 = scan.nextLine();
-      System.out.println();
       
       if(reply2.equalsIgnoreCase("yes")) {
 
@@ -103,7 +101,7 @@ public class listBuilder {
                + "-----------------------------------------------------------"
                + "\n" + "\n" + completedList);
             fw.close();
-            System.out.println("\n" + "Successfully generated file in:" + "\n"
+            System.out.println("Successfully generated file in:" + "\n"
             + file.getAbsolutePath() + "\n" + "\n");
          }
 
@@ -111,13 +109,14 @@ public class listBuilder {
          catch (IOException ex) {
             System.out.println("\n" + "An error occurred." + "\n");
             ex.printStackTrace();
-            createList(); //recursive call to own method.
+            System.exit(0);
          }
        }
 
    //Method for creating units.
    public static void unitCreate() {
       try {
+        System.out.println();
         System.out.println("Choose a battlefield role? (yes/no)");
         reply = scan.nextLine();
            

@@ -6,7 +6,6 @@ public class HQ extends unitBuilder {
 
    //Class object created to hold each unit's info. 
    static HQ hqChoice = new HQ("", "", "", 0, 0, 0);
-   private String hqAnswer;
    private int hqUnitPointVal;
    private static int hqTotalPointVal;
 
@@ -31,23 +30,7 @@ public class HQ extends unitBuilder {
   }
 
   /**
-  * Method for getting the hq Answer.
-  * @return returns hqAnswer
-  */
-  public String getHqAnswer() {
-   return hqAnswer;
-  }
-
-  /**
-  * Method for setting hq Answer.
-  * @param hqAnswerIn inputs hqAnswer.
-  */
-  public void setHqAnswer(String hqAnswerIn) {
-   hqAnswer = hqAnswerIn;
-  }
-
-  /**
-  * Method for getting the hq Unit Point Val.
+  * Method for getting the hq unit point val.
   * @return returns hqUnitPointVal
   */
   public int getHqUnitPointVal() {
@@ -55,7 +38,7 @@ public class HQ extends unitBuilder {
   }
 
   /**
-  * Method for setting hq Unit Point Val.
+  * Method for setting hq unit point val.
   * @param hqUnitPointValIn inputs hqUnitPointVal.
   */
   public void setHqUnitPointVal(int hqUnitPointValIn) {
@@ -63,7 +46,7 @@ public class HQ extends unitBuilder {
   }
   
    /**
-  * Method for getting the hq Total Point Val.
+  * Method for getting the hq total point val.
   * @return returns hq Total Point Val
   */
   public static int getHqTotalPointVal() {
@@ -71,7 +54,7 @@ public class HQ extends unitBuilder {
   }
 
   /**
-  * Method for setting hq Total Point Val.
+  * Method for setting hq total point val.
   * @param hqTotalPointValIn inputs hqTotalPointVal.
   */
   public void setHqTotalPointVal(int hqTotalPointValIn) {
@@ -91,40 +74,43 @@ public class HQ extends unitBuilder {
     hqChoice.setUnitName(listBuilder.scan.nextLine());
    
     System.out.println();
-    System.out.println("Enter unit composition." + "\n" + "Use tab-enter to end.");
 
     /*Makes the scanner read a tab-enter before continuing to scan, 
     * this allows multi-line input from user */
     listBuilder.scan.useDelimiter("\\t");
+    System.out.println("Enter unit composition." + "\n" + "Use tab-enter to end.");
     hqChoice.setUnitComposition(listBuilder.scan.next());
+    listBuilder.scan.reset();
 
    hqPointCalculator();
 
     System.out.println();
-    listBuilder.scan.nextLine();
+    listBuilder.scan.useDelimiter("\\t");
     System.out.println("Enter remarks." + "\n" + "Use tab-enter to end.");
-
-    //listBuilder.scan.useDelimiter("\\t");
     hqChoice.setRemarks(listBuilder.scan.next());
+    listBuilder.scan.reset();
+
+    listBuilder.createdUnits.add(hqChoice.toString());
 
     System.out.println();
     listBuilder.scan.nextLine();
-    
-    listBuilder.createdUnits.add(hqChoice.toString());
-
-    System.out.println("Pick another HQ? (yes/no) " + "\n" + "Use tab-enter to end.");
-    hqAnswer = listBuilder.scan.nextLine();
+    System.out.println("Pick another HQ? (yes/no)");
+    String hqAnswer = listBuilder.scan.nextLine();
 
    //Call the method again of there are additional inputs.
-   while (hqAnswer.equalsIgnoreCase("yes")) {
-     pickedHq(); //recursive call to own method.
+   if (hqAnswer.equalsIgnoreCase("yes")) {
+     pickedHq(); //call to own method.
      listBuilder.scan.nextLine();
+     System.out.println();
+   }
+   else { 
+     listBuilder.unitCreate();
+     System.out.println();
    }
    }
   catch (Exception ex) {
    System.out.println("\n" + "An error occurred." + "\n");
    ex.printStackTrace();
-   pickedHq(); //recursive call to own method.
   }
 }
 
@@ -132,18 +118,15 @@ public class HQ extends unitBuilder {
 public void hqPointCalculator() {
   try {
   System.out.println();
-  listBuilder.scan.nextLine();
-  System.out.println("Enter # of models in the unit." + "\n" + "Use tab-enter to end.");
+  System.out.println("Enter # of models in the unit.");
   hqChoice.setNumInUnit(listBuilder.scan.nextInt());
 
   System.out.println();
-  listBuilder.scan.nextLine();
-  System.out.println("Enter # of points per model." + "\n" + "Use tab-enter to end.");
+  System.out.println("Enter # of points per model.");
   hqChoice.setPointVal(listBuilder.scan.nextInt());
 
   System.out.println();
-  listBuilder.scan.nextLine();
-  System.out.println("Enter total upgrade pts." + "\n" + "Use tab-enter to end.");
+  System.out.println("Enter total upgrade pts.");
   hqChoice.setUpgradePoints(listBuilder.scan.nextInt());
 
   //Adds each unit pts value separately.
@@ -154,9 +137,8 @@ public void hqPointCalculator() {
   }
   catch (Exception ex) {
    System.out.println("\n" + "An error occurred." + "\n" 
-   + "Please only enter numbers and use tab-enter to end." + "\n");
+   + "Please only enter numbers." + "\n");
    ex.printStackTrace();
-   hqPointCalculator(); //recursive call to own method.
   }
 }
 }

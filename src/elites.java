@@ -4,159 +4,141 @@
 */
 public class elites extends unitBuilder {
 
-   //Class object created to hold each unit's info. 
-   static elites elitesChoice = new elites("", "", "", 0, 0, 0);
-   private String elitesAnswer;
-   private int elitesUnitPointVal;
-   private static int elitesTotalPointVal;
+  //Class object created to hold each unit's info. 
+  static elites elitesChoice = new elites("", "", "", 0, 0, 0);
+  private int elitesUnitPointVal;
+  private static int elitesTotalPointVal;
 
 //Constructor that takes the parameters of the unit.
-  public elites(String unitName, String unitComposition, String remarks, 
-  int upgradePoints, int numInUnit, int pointVal) {
-   super(unitName, unitComposition, remarks, upgradePoints, numInUnit, pointVal);
-  }
+ public elites(String unitName, String unitComposition, String remarks, 
+ int upgradePoints, int numInUnit, int pointVal) {
+  super(unitName, unitComposition, remarks, upgradePoints, numInUnit, pointVal);
+ }
 
 //toString method returns the unit info in string form.
-  public String toString() {
-   String output = super.toString();
+ public String toString() {
+  String output = super.toString();
 
-   //Appends all info from user input.
-   output = 
-   "* ELITES: " 
-   + getUnitName().toUpperCase() + " / " 
-   + "[" + elitesUnitPointVal + "pts] *" + "\n"
-   + "+ UNIT COMP:" + "\n" + getUnitComposition() + "\n"
-   + "+ RMKS: " + "\n" + getRemarks() + "\n" + "\n" + "\n";
-   return output;
-  }
+  //Appends all info from user input.
+  output = 
+  "* ELITES: " 
+  + getUnitName().toUpperCase() + " / " 
+  + "[" + elitesUnitPointVal + "pts] *" + "\n"
+  + "+ UNIT COMP:" + "\n" + getUnitComposition() + "\n"
+  + "+ RMKS: " + "\n" + getRemarks() + "\n" + "\n" + "\n";
+  return output;
+ }
 
+ /**
+ * Method for getting the elites unit point val.
+ * @return returns elitesUnitPointVal
+ */
+ public int getElitesUnitPointVal() {
+  return elitesUnitPointVal;
+ }
+
+ /**
+ * Method for setting elites unit point val.
+ * @param elitesUnitPointValIn inputs elitesUnitPointVal.
+ */
+ public void setElitesUnitPointVal(int elitesUnitPointValIn) {
+  elitesUnitPointVal = elitesUnitPointValIn;
+ }
+ 
   /**
-  * Method for getting the elites Answer.
-  * @return returns elitesAnswer
-  */
-  public String getElitesAnswer() {
-   return elitesAnswer;
-  }
+ * Method for getting the elites total point val.
+ * @return returns elites Total Point Val
+ */
+ public static int getElitesTotalPointVal() {
+  return elitesTotalPointVal;
+ }
 
-  /**
-  * Method for setting elites Answer.
-  * @param elitesAnswerIn inputs elitesAnswer.
-  */
-  public void setelitesAnswer(String elitesAnswerIn) {
-   elitesAnswer = elitesAnswerIn;
-  }
+ /**
+ * Method for setting elites total point val.
+ * @param elitesTotalPointValIn inputs elitesTotalPointVal.
+ */
+ public void setElitesTotalPointVal(int elitesTotalPointValIn) {
+  elitesTotalPointVal = elitesTotalPointValIn;
+ }
 
-  /**
-  * Method for getting the elites Unit Point Val.
-  * @return returns elitesUnitPointVal
-  */
-  public int getElitesUnitPointVal() {
-   return elitesUnitPointVal;
-  }
+  //Method that gathers all necessary elites info.
+   public void pickedElites() {
+  try {
 
-  /**
-  * Method for setting elites Unit Point Val.
-  * @param elitesUnitPointValIn inputs elitesUnitPointVal.
-  */
-  public void setelitesUnitPointVal(int elitesUnitPointValIn) {
-   elitesUnitPointVal = elitesUnitPointValIn;
-  }
+   /*Total unit count will only increase
+   by 1 if this type of unit is created.*/
+   unitBuilder.increaseTotalUnitCount();
   
-   /**
-  * Method for getting the elites Total Point Val.
-  * @return returns elites Total Point Val
-  */
-  public static int getElitesTotalPointVal() {
-   return elitesTotalPointVal;
-  }
+   System.out.println();
+   System.out.println("Make an elites choice.");
+   elitesChoice.setUnitName(listBuilder.scan.nextLine());
+  
+   System.out.println();
 
-  /**
-  * Method for setting elites Total Point Val.
-  * @param elitesTotalPointValIn inputs elitesTotalPointVal.
-  */
-  public void setelitesTotalPointVal(int elitesTotalPointValIn) {
-   elitesTotalPointVal = elitesTotalPointValIn;
-  }
+   /*Makes the scanner read a tab-enter before continuing to scan, 
+   * this allows multi-line input from user */
+   listBuilder.scan.useDelimiter("\\t");
+   System.out.println("Enter unit composition." + "\n" + "Use tab-enter to end.");
+   elitesChoice.setUnitComposition(listBuilder.scan.next());
+   listBuilder.scan.reset();
 
-   //Method that gathers all necessary elites info.
-    public void pickedElites() {
-   try {
+  elitesPointCalculator();
 
-    /*Total unit count will only increase
-    by 1 if this type of unit is created.*/
-    unitBuilder.increaseTotalUnitCount();
-   
-    System.out.println();
-    System.out.println("Make an elites choice.");
-    elitesChoice.setUnitName(listBuilder.scan.nextLine());
-   
-    System.out.println();
-    System.out.println("Enter unit composition." + "\n" + "Use tab-enter to end.");
+   System.out.println();
+   listBuilder.scan.useDelimiter("\\t");
+   System.out.println("Enter remarks." + "\n" + "Use tab-enter to end.");
+   elitesChoice.setRemarks(listBuilder.scan.next());
+   listBuilder.scan.reset();
 
-    /*Makes the scanner read a tab-enter before continuing to scan, 
-    * this allows multi-line input from user */
-    listBuilder.scan.useDelimiter("\\t");
-    elitesChoice.setUnitComposition(listBuilder.scan.next());
+   listBuilder.createdUnits.add(elitesChoice.toString());
 
-   elitesPointCalculator();
+   System.out.println();
+   listBuilder.scan.nextLine();
+   System.out.println("Pick another elites? (yes/no)");
+   String elitesAnswer = listBuilder.scan.nextLine();
 
-    System.out.println();
+  //Call the method again of there are additional inputs.
+  if (elitesAnswer.equalsIgnoreCase("yes")) {
+    pickedElites(); //call to own method.
     listBuilder.scan.nextLine();
-    System.out.println("Enter remarks." + "\n" + "Use tab-enter to end.");
-
-    //listBuilder.scan.useDelimiter("\\t");
-    elitesChoice.setRemarks(listBuilder.scan.next());
-
     System.out.println();
-    listBuilder.scan.nextLine();
-    
-    listBuilder.createdUnits.add(elitesChoice.toString());
-
-    System.out.println("Pick another elites? (yes/no) " + "\n" + "Use tab-enter to end.");
-    elitesAnswer = listBuilder.scan.nextLine();
-
-   //Call the method again of there are additional inputs.
-   while (elitesAnswer.equalsIgnoreCase("yes")) {
-     pickedElites(); //recursive call to own method.
-     listBuilder.scan.nextLine();
-   }
-   }
-  catch (Exception ex) {
-   System.out.println("\n" + "An error occurred." + "\n");
-   ex.printStackTrace();
-   pickedElites(); //recursive call to own method.
   }
+  else { 
+    listBuilder.unitCreate();
+    System.out.println();
+  }
+  }
+ catch (Exception ex) {
+  System.out.println("\n" + "An error occurred." + "\n");
+  ex.printStackTrace();
+ }
 }
 
 //This method takes point values from user and calculates total point value.
 public void elitesPointCalculator() {
-  try {
-  System.out.println();
-  listBuilder.scan.nextLine();
-  System.out.println("Enter # of models in the unit." + "\n" + "Use tab-enter to end.");
-  elitesChoice.setNumInUnit(listBuilder.scan.nextInt());
+ try {
+ System.out.println();
+ System.out.println("Enter # of models in the unit.");
+ elitesChoice.setNumInUnit(listBuilder.scan.nextInt());
 
-  System.out.println();
-  listBuilder.scan.nextLine();
-  System.out.println("Enter # of points per model." + "\n" + "Use tab-enter to end.");
-  elitesChoice.setPointVal(listBuilder.scan.nextInt());
+ System.out.println();
+ System.out.println("Enter # of points per model.");
+ elitesChoice.setPointVal(listBuilder.scan.nextInt());
 
-  System.out.println();
-  listBuilder.scan.nextLine();
-  System.out.println("Enter total upgrade pts." + "\n" + "Use tab-enter to end.");
-  elitesChoice.setUpgradePoints(listBuilder.scan.nextInt());
+ System.out.println();
+ System.out.println("Enter total upgrade pts.");
+ elitesChoice.setUpgradePoints(listBuilder.scan.nextInt());
 
-  //Adds each unit pts value separately.
-  elitesUnitPointVal = (elitesChoice.getNumInUnit() * elitesChoice.getPointVal()) + elitesChoice.getUpgradePoints();
-  
-  //Holds a running total of how many pts the elites units cost in total.
-  elitesTotalPointVal += elitesUnitPointVal;
-  }
-  catch (Exception ex) {
-   System.out.println("\n" + "An error occurred." + "\n" 
-   + "Please only enter numbers and use tab-enter to end." + "\n");
-   ex.printStackTrace();
-   elitesPointCalculator(); //recursive call to own method.
-  }
+ //Adds each unit pts value separately.
+ elitesUnitPointVal = (elitesChoice.getNumInUnit() * elitesChoice.getPointVal()) + elitesChoice.getUpgradePoints();
+ 
+ //Holds a running total of how many pts the elites units cost in total.
+ elitesTotalPointVal += elitesUnitPointVal;
+ }
+ catch (Exception ex) {
+  System.out.println("\n" + "An error occurred." + "\n" 
+  + "Please only enter numbers." + "\n");
+  ex.printStackTrace();
+ }
 }
 }
