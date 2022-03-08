@@ -12,7 +12,6 @@ Below is an example of the txt file that is generated after the user has entered
 ![Screenshot of ArmyAdder txt file](https://user-images.githubusercontent.com/97514020/154974375-7c7aff52-5613-4cdb-99d1-60450754b8f3.png)
 
 ## Video Demo
-Below is a short video demonstrating the program from start to finish:<br>
-(Video significantly is sped up.)
+Below is a short video demonstrating the program from start to finish:　(Video significantly is sped up.)<br>
 
 https://user-images.githubusercontent.com/97514020/154981321-9fa47278-fa3c-468f-88b2-118545086690.mov
