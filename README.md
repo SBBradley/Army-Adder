@@ -1,6 +1,12 @@
 # ArmyAdder
 A program that generates an army list for a tabletop wargame. It takes user input from the console and exports it to a txt file with a summary of the army's info.
 
+## Installation / Usage
+1. Fork this repo.
+2. Copy the link from the [Code] dropdown
+3. Use [git clone "the link you copied"] in the IDE of choice
+4. Run listBuilder.java to use the program.
+
 ## Console Interface
 Below is a screenshot of the program during execution:
 
