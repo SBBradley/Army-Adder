@@ -3,8 +3,8 @@ A program that generates an army list for a tabletop wargame. It takes user inpu
 
 ## Installation / Usage
 1. Fork this repo.
-2. Copy the link from the [Code] dropdown
-3. Use [git clone "the link you copied"] in the IDE of choice
+2. Copy the link from the [Code] dropdown.
+3. Use [git clone "the link you copied"] in terminal of IDE.
 4. Run listBuilder.java to use the program.
 
 ## Console Interface
