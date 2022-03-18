@@ -1,4 +1,4 @@
-# ArmyAdder
+# Army-Adder
 A program that generates an army list for a tabletop wargame. It takes user input from the console and exports it to a txt file with a summary of the army's info.
 
 ## Installation / Usage
